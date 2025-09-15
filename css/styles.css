@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #1b263b;
+}
+
+.icono {
+  width: 32px;
+}
+
+.navbar {
+  background: linear-gradient(120deg, #2760d3, #3957ed);
+  /* background: linear-gradient(90deg, #3957ed, #2375ef);
+  background: linear-gradient(90deg, #3957ed, #7ec9f5); */
+}
+.navbar .navbar-collapse .nav-link {
+  color: #ffffff;
+}
+
+.navbar .navbar-collapse .nav-link:hover {
+  color: #ffd700;
+}
+
+.navbar .navbar-toggler {
+  border: 1px solid #ffffff31;
+  box-shadow: none;
+}
