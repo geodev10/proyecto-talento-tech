@@ -31,3 +31,58 @@ header {
   border: 1px solid #ffffff31;
   box-shadow: none;
 }
+
+
+/* TRUCAZO CARDS */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-hover .card-img-top {
+  position: relative;
+  z-index: 3; /* ✅ La imagen siempre al frente */
+}
+
+.card-hover .card-body,
+.card-hover .card-footer {
+  transition: all 0.4s ease;
+  background-color: white;
+  z-index: 2; /* ✅ El contenido se queda detrás de la imagen */
+}
+
+.card-hover .card-body {
+  position: relative;
+}
+
+.card-hover .card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  z-index: 2;
+  text-align: center;
+  padding: 1rem;
+  border: none;
+}
+
+.card-hover:hover .card-body {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.card-hover:hover .card-footer {
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+.card-footer .btn {
+  background: linear-gradient(120deg, #2760d3, #3957ed);
+
+}
