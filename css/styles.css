@@ -6,9 +6,28 @@
   padding: 0;
 }
 
+body {
+  background: linear-gradient(to bottom, #d6f1fc 35%, #d6f1fc83 65%);
+}
+
 header {
   background-color: #1b263b;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* section .productos-oferta,
+section .productos-nuevos{
+  pad
+} */
 
 .icono {
   width: 32px;
@@ -19,13 +38,23 @@ header {
   /* background: linear-gradient(90deg, #3957ed, #2375ef);
   background: linear-gradient(90deg, #3957ed, #7ec9f5); */
 }
+
 .navbar .navbar-collapse .nav-link {
   color: #ffffff;
 }
 
-.navbar .navbar-collapse .nav-link:hover {
+nav-link,
+footer a {
+ transition: color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar .navbar-collapse .nav-link:hover,
+footer a:hover {
   color: #ffd700;
 }
+
+
+
 
 .navbar .navbar-toggler {
   border: 1px solid #ffffff31;
@@ -44,14 +73,16 @@ header {
 
 .card-hover .card-img-top {
   position: relative;
-  z-index: 3; /* ✅ La imagen siempre al frente */
+  z-index: 3;
+  /* ✅ La imagen siempre al frente */
 }
 
 .card-hover .card-body,
 .card-hover .card-footer {
   transition: all 0.4s ease;
   background-color: white;
-  z-index: 2; /* ✅ El contenido se queda detrás de la imagen */
+  z-index: 2;
+  /* ✅ El contenido se queda detrás de la imagen */
 }
 
 .card-hover .card-body {
@@ -84,5 +115,42 @@ header {
 
 .card-footer .btn {
   background: linear-gradient(120deg, #2760d3, #3957ed);
+}
 
+/* .productos-nuevos{
+  background-color: #D6F1FC;
+} */
+
+
+/* Icono Whatsapp */
+
+.whatsapp {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: block;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #25d366;
+  z-index: 10;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+
+.whatsapp .bi-whatsapp {
+  fill: #ffffff;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: #353333;
+  color: #ffffff;
+}
+
+
+footer a,
+footer a i {
+  color: #ffffff;
 }
