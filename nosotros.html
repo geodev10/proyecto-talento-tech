@@ -39,12 +39,26 @@
   </head>
   <body>
     <header class="sticky-top">
-      <!-- Probar tambien con container-fluid -->
-
       <nav class="navbar navbar-expand-lg navbar-dark fs-5 p-0">
-        <div class="container-fluid">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
+        >
+          <!-- Logo -->
+          <a class="navbar-brand p-0 m-0" href="./index.html">
+            <img
+              class="icono"
+              src="./assets/img/logobase.png"
+              alt="Logo del proyecto"
+            />
+          </a>
+
+          <a href="./carrito.html" class="btn carrito d-lg-none">
+            <i class="bi bi-cart-fill" aria-hidden="true"></i>
+          </a>
+
+          <!-- Menu hamburguesa -->
           <button
-            class="navbar-toggler"
+            class="navbar-toggler order-lg-2"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo03"
@@ -54,15 +68,12 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <a class="navbar-brand p-0 m-0" href="./index.html">
-            <img
-              class="icono"
-              src="./assets/img/logobase.png"
-              alt="Logo del proyecto"
-            />
-          </a>
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+          <div
+            class="collapse navbar-collapse justify-content-center order-lg-1"
+            id="navbarTogglerDemo03"
+          >
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
               <li class="nav-item">
                 <a class="nav-link p-4" aria-current="page" href="./index.html"
                   >Inicio</a
@@ -78,6 +89,13 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link p-4" href="./contacto.html">Contacto</a>
+              </li>
+
+              <!-- Carrito solo visible en desktop -->
+              <li class="nav-item d-none d-lg-block">
+                <a class="nav-link p-4" href="./carrito.html">
+                  <i class="bi bi-cart-fill" aria-hidden="true"></i> Carrito
+                </a>
               </li>
             </ul>
             <!-- Por si se va a agregar buscador -->
@@ -97,43 +115,9 @@
       </nav>
     </header>
     <main>
-      <!-- <section class="somos">
-        <div class="container">
-          <div class="tarjeta-grande d-flex" data-aos="fade-right">
-            <img src="./assets/img/ejemplo-mision.jpg" alt="Imagen 1" />
-            <div>
-              <h2>Misión</h2>
-              <p>
-                Compartir conocimiento a través de libros que inspiran, enseñan
-                y transforman vidas, promoviendo la lectura en nuestra
-                comunidad.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mision">
-        <div class="container">
-          
-          <div class="tarjeta-grande d-flex" data-aos="fade-left">
-            <img src="https://via.placeholder.com/200x250" alt="Imagen 2" />
-            <div>
-              <h2>Visión</h2>
-              <p>
-                Ser la librería de referencia en la ciudad, reconocida por su
-                calidez, compromiso y variedad de textos que enriquecen el
-                espíritu.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section> -->
-
       <section class="mision py-5">
         <div class="container">
           <div class="row align-items-center" data-aos="fade-left">
-            <!-- Imagen -->
             <div class="col-md-5 mb-4 mb-md-0">
               <img
                 src="./assets/img/ejemplo-mision.jpg"
@@ -141,7 +125,6 @@
                 class="img-fluid rounded shadow"
               />
             </div>
-            <!-- Texto -->
             <div class="col-md-7">
               <h2 class="fw-bold mb-3">Misión</h2>
               <p class="lead">
@@ -174,7 +157,7 @@
 
             <div class="col-md-5 mb-4 mb-md-0">
               <img
-                src="./assets/img/ejemplo-mision.jpg"
+                src="./assets/img/vision.jpg"
                 alt="Imagen visión"
                 class="img-fluid rounded shadow"
               />
@@ -189,7 +172,7 @@
             <!-- Imagen -->
             <div class="col-md-5 mb-4 mb-md-0">
               <img
-                src="./assets/img/ejemplo-mision.jpg"
+                src="./assets/img/valores.avif"
                 alt="Imagen misión"
                 class="img-fluid rounded shadow"
               />
@@ -260,7 +243,7 @@
 
             <div class="col-md-5 mb-4 mb-md-0">
               <img
-                src="./assets/img/ejemplo-mision.jpg"
+                src="./assets/img/historia.jpg"
                 alt="Imagen visión"
                 class="img-fluid rounded shadow"
               />
