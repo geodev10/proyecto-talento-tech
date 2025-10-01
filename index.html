@@ -34,6 +34,13 @@
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- SweetAlert2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./css/styles.css" />
     <title>Libreria Pentecostal</title>
   </head>
@@ -54,6 +61,12 @@
 
           <a href="./carrito.html" class="btn carrito d-lg-none">
             <i class="bi bi-cart-fill" aria-hidden="true"></i>
+            <span
+              id="cart-count-movil"
+              class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-warning"
+            >
+              0
+            </span>
           </a>
 
           <!-- Menu hamburguesa -->
@@ -93,9 +106,21 @@
               </li>
 
               <!-- Carrito solo visible en desktop -->
-              <li class="nav-item d-none d-lg-block">
+              <!-- <li class="nav-item d-none d-lg-block">
                 <a class="nav-link p-4" href="./carrito.html">
                   <i class="bi bi-cart-fill" aria-hidden="true"></i> Carrito
+                </a>
+              </li> -->
+
+              <li class="nav-item d-none d-lg-block">
+                <a class="nav-link p-4 position-relative" href="./carrito.html">
+                  <i class="bi bi-cart-fill" aria-hidden="true"></i> Carrito
+                  <span
+                    id="cart-count"
+                    class="position-absolute top-10 start-20 translate-middle badge rounded-pill bg-warning"
+                  >
+                    0
+                  </span>
                 </a>
               </li>
             </ul>
@@ -128,169 +153,6 @@
       <section class="productos-oferta pt-5 pb-5">
         <h2 class="text-center fs-1 fw-bold mb-5">Productos en oferta</h2>
         <div class="container swiper swiper-productos">
-          <!-- <ul class="swiper-wrapper mb-3">
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img
-                  class="card-img-top"
-                  src="./assets/img/mision-cristiana.webp"
-                  alt="Portada del libro La Misión Cristiana"
-                />
-
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">Jhon Stott</h6>
-                  <h2 class="card-title fs-6">
-                    La Misión Cristiana en el mundo moderno
-                  </h2>
-                  <p class="card-text">$63.000</p>
-                </div>
-
-                <footer class="card-footer d-flex gap-2">
-                  <button
-                    type="button"
-                    class="btn btn-outline-primary w-50 d-flex align-items-center justify-content-center"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalProducto"
-                  >
-                    <i class="bi bi-eye-fill" aria-hidden="true"></i>
-                    <span class="d-none d-sm-inline ms-2">Ver</span>
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-success w-50 d-flex align-items-center justify-content-center"
-                  >
-                    <i class="bi bi-cart-fill" aria-hidden="true"></i>
-                    <span class="d-none d-sm-inline ms-2">Añadir</span>
-                  </button>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img class="card-img-top" src="./assets/img/ayuda.webp" alt />
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">James McDonald</h6>
-                  <h2 class="card-title fs-6">¡Señor Ayúdame a cambiar!</h2>
-
-                  <p class="card-text">$63.000</p>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img
-                  class="card-img-top"
-                  src="./assets/img/esperanza.webp"
-                  alt
-                />
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">Max Lucado</h6>
-                  <h2 class="card-title fs-6">Esperanza inquebrantable</h2>
-
-                  <p class="card-text">$63.000</p>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img class="card-img-top" src="./assets/img/dios.webp" alt />
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">Max Lucado</h6>
-                  <h2 class="card-title fs-6">
-                    Dios nunca se da por vencido contigo
-                  </h2>
-
-                  <p class="card-text">$63.000</p>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img
-                  class="card-img-top"
-                  src="./assets/img/mision-cristiana.webp"
-                  alt="Portada del libro La Misión Cristiana"
-                />
-
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">Jhon Stott</h6>
-                  <h2 class="card-title fs-6">
-                    La Misión Cristiana en el mundo moderno
-                  </h2>
-                  <p class="card-text">$63.000</p>
-                </div>
-
-                <footer class="card-footer">
-                  <a href="#" class="btn text-light">Comprar</a>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img class="card-img-top" src="./assets/img/ayuda.webp" alt />
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">James McDonald</h6>
-                  <h2 class="card-title fs-6">¡Señor Ayúdame a cambiar!</h2>
-
-                  <p class="card-text">$63.000</p>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img
-                  class="card-img-top"
-                  src="./assets/img/esperanza.webp"
-                  alt
-                />
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">Max Lucado</h6>
-                  <h2 class="card-title fs-6">Esperanza inquebrantable</h2>
-
-                  <p class="card-text">$63.000</p>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                </footer>
-              </article>
-            </li>
-
-            <li class="swiper-slide">
-              <article class="card text-center card-hover h-100">
-                <img class="card-img-top" src="./assets/img/dios.webp" alt />
-                <div class="card-body">
-                  <h6 class="card-subtitle text-muted mb-2">Max Lucado</h6>
-                  <h2 class="card-title fs-6">
-                    Dios nunca se da por vencido contigo
-                  </h2>
-
-                  <p class="card-text">$63.000</p>
-                </div>
-                <footer class="card-footer">
-                  <a href="#" class="btn btn-primary">Comprar</a>
-                </footer>
-              </article>
-            </li>
-          </ul> -->
-
           <ul id="libros-oferta" class="swiper-wrapper mb-3"></ul>
 
           <div class="swiper-pagination"></div>
@@ -649,7 +511,7 @@
           <div class="modal-footer border-0">
             <button
               type="button"
-              class="btn btn-primary w-50"
+              class="btn btn-primary w-50 btn-añadir"
               id="btnAgregarCarrito"
               data-id=""
             >
@@ -778,5 +640,8 @@
     <!-- Scripts AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/aos.js"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

@@ -48,7 +48,8 @@ a {
 header {
   background-color: transparent;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3),
-    /* sombra abajo */ 0 -2px 6px rgba(255, 255, 255, 0.1);
+    /* sombra abajo */
+    0 -2px 6px rgba(255, 255, 255, 0.1);
   /* luz arriba */
 }
 
@@ -134,6 +135,7 @@ footer a:hover {
 .navbar .carrito:hover {
   background: #ffffff3f;
 }
+
 /*  */
 
 .navbar .navbar-toggler {
@@ -317,6 +319,37 @@ footer a:hover {
   border-radius: 25px;
 }
 
+/* Carrito de compras */
+.seccion-pagar {
+  background-color: transparent;
+  border: none;
+}
+
+.pagos-envios {
+  padding-bottom: 8rem;
+}
+
+
+/* .pagos-envios img {
+  width: 120px;
+  height: 62px;
+} */
+
+.pagos,
+.envios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagos img,
+.envios img {
+  max-height: 60px;
+  object-fit: contain;
+}
+
 /* FOOTER */
 footer {
   background-color: #353333;
@@ -371,18 +404,23 @@ footer a i {
   0% {
     transform: rotate(0deg) scale(1.1);
   }
+
   20% {
     transform: rotate(-10deg) scale(1.1);
   }
+
   40% {
     transform: rotate(10deg) scale(1.1);
   }
+
   60% {
     transform: rotate(-8deg) scale(1.1);
   }
+
   80% {
     transform: rotate(8deg) scale(1.1);
   }
+
   100% {
     transform: rotate(0deg) scale(1.1);
   }
