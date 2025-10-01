@@ -43,17 +43,27 @@ cardsOferta.insertAdjacentHTML("beforeend", marcadoLibrosOferta);
 
 document.querySelectorAll(".btn-añadir").forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    const titulo = e.currentTarget.dataset.titulo;
-    const precio = e.currentTarget.dataset.precio;
+    const id = e.currentTarget.dataset.id;
+
+    // Obtener carrito del localStorage
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // Añadir el id (si no existe aún)
+    if (!carrito.includes(id)) {
+      carrito.push(id);
+    }
+
+    // Guardar en localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 
     Swal.fire({
       title: "¡Producto añadido!",
-      text: `Agregado al carrito`,
+      text: "Agregado al carrito",
       icon: "success",
-      showConfirmButton: false,
       timer: 1000,
       toast: true,
       position: "top-end",
+      showConfirmButton: false,
     });
   });
 });
