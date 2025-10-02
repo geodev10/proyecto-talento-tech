@@ -24,7 +24,7 @@ const marcadoLibros = libros
           </button>
             <button
               type="button"
-              class="btn btn-success w-50 d-flex align-items-center justify-content-center"
+              class="btn btn-success w-50 d-flex align-items-center justify-content-center btn-añadir"
               data-id="${id}"
             >
               <i class="bi bi-cart-fill" aria-hidden="true"></i>
@@ -38,3 +38,44 @@ const marcadoLibros = libros
   .join("");
 
 listaLibros.insertAdjacentHTML("beforeend", marcadoLibros);
+
+// Logica improvisada-BORRAR SI ES NECESARIO
+
+document.querySelectorAll(".btn-añadir").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const id = e.currentTarget.dataset.id;
+
+    // Obtener carrito del localStorage
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // Añadir el id (si no existe aún)
+    if (!carrito.includes(id)) {
+      carrito.push(id);
+    }
+
+    // Guardar en localStorage
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+
+    Swal.fire({
+      title: "¡Producto añadido!",
+      text: "Agregado al carrito",
+      icon: "success",
+      timer: 1000,
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+    });
+  });
+});
+
+let cartCount = 0;
+const cartCountEl = document.getElementById("cart-count");
+const cartCountMovil = document.getElementById("cart-count-movil");
+
+document.addEventListener("click", (e) => {
+  if (e.target.closest(".btn-añadir")) {
+    cartCount++;
+    cartCountEl.textContent = cartCount;
+    cartCountMovil.textContent = cartCount;
+  }
+});
