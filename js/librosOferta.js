@@ -7,8 +7,8 @@ const marcadoLibrosOferta = libros
         <article class="card text-center card-hover h-100">
           <img class="card-img-top" src="${imagen}" alt="${alt}" />
           <div class="card-body">
-            <h6 class="card-subtitle text-muted mb-2">${autor}</h6>
-            <h2 class="card-title fs-6">${titulo}</h2>
+          <h3 class="card-title fs-6">${titulo}</h3>
+            <h6 class="card-subtitle mb-2">${autor}</h6>
             <p class="card-text">$${precio}</p>
           </div>
           <footer class="card-footer d-flex gap-2">
