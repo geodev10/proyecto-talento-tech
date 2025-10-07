@@ -8,6 +8,7 @@
   --blanco: #fefefe;
   --violeta-ruso: #1c1233;
   --violeta-ruso-deg: #1c1233e5;
+  --violeta: #2f1e58;
   --negro-grisaceo: #2c282c;
   --bunker: #11171b;
   --bunker-deg: #11171b88;
@@ -22,11 +23,9 @@
 }
 
 body {
-  background: linear-gradient(
-    to bottom,
-    var(--violeta-ruso) 35%,
-    var(--violeta-ruso-deg) 65%
-  );
+  background: linear-gradient(to bottom,
+      var(--violeta-ruso) 25%,
+      var(--violeta-ruso-deg) 65%);
   /* 1font-family: "Lato", sans-serif; 
   font-optical-sizing: auto;
   */
@@ -285,7 +284,8 @@ footer a {
 
 .card-text,
 .modal-content p,
-.modal-content label {
+.modal-content label,
+.seccion-iconos .card-body .card-text {
   color: var(--blanco);
   text-shadow: 0 0 1px var(--gold), 0 0 1px var(--gold), 0 0 1px var(--gold),
     0 0 1px var(--violeta-ruso);
@@ -301,6 +301,32 @@ footer a {
   position: relative;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--verde-acento);
+  scale: 1.2;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.swiper-button-next {
+  right: 10px;
+}
+
+
+.swiper-pagination-bullet {
+  width: 9px;
+  height: 9px;
+}
+
+/* Color del punto activo */
+.swiper-pagination-bullet-active {
+  background-color: var(--verde-acento);
+
 }
 
 .swiper-wrapper:hover {
@@ -336,9 +362,6 @@ footer a {
     0 0 2px var(--rojo-sangre), 0 0 1px var(--violeta-ruso-deg);
 }
 
-.seccion-iconos .card .card-text {
-  color: var(--leon);
-}
 
 /* Testimonios */
 
@@ -402,7 +425,14 @@ footer a {
   border-radius: 25px;
 }
 
+
 /* Carrito de compras */
+
+#carrito .card {
+  border-radius: 20px;
+  background-color: var(--violeta);
+}
+
 .seccion-pagar {
   background-color: transparent;
   border: none;
@@ -480,6 +510,9 @@ footer a:hover {
 .whatsapp .bi-whatsapp {
   fill: #ffffff;
 }
+
+
+
 
 /* Animaciones */
 @keyframes apareceForm {
