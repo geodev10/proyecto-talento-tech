@@ -227,7 +227,7 @@ footer a {
 
 .card-hover:hover .card-body {
   transform: translateY(-100%);
-  opacity: 1;
+  opacity: 0;
 }
 
 .card-hover:hover .card-footer {
@@ -317,7 +317,6 @@ footer a {
   right: 10px;
 }
 
-
 .swiper-pagination-bullet {
   width: 9px;
   height: 9px;
@@ -326,7 +325,6 @@ footer a {
 /* Color del punto activo */
 .swiper-pagination-bullet-active {
   background-color: var(--verde-acento);
-
 }
 
 .swiper-wrapper:hover {
@@ -362,8 +360,12 @@ footer a {
     0 0 2px var(--rojo-sangre), 0 0 1px var(--violeta-ruso-deg);
 }
 
-
-/* Testimonios */
+/* VISION E HISTORIA */
+.vision,
+.historia {
+  /* background-color: var(--violeta-ruso-deg); */
+  background: var(--violeta);
+}
 
 /* PAGINA CONTACTO */
 .contacto .card {
@@ -424,7 +426,6 @@ footer a {
 .redes .redes-lista img:last-child {
   border-radius: 25px;
 }
-
 
 /* Carrito de compras */
 
@@ -510,9 +511,6 @@ footer a:hover {
 .whatsapp .bi-whatsapp {
   fill: #ffffff;
 }
-
-
-
 
 /* Animaciones */
 @keyframes apareceForm {
