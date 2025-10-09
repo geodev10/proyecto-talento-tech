@@ -1,6 +1,6 @@
 const cardsOferta = document.getElementById("libros-oferta");
 
-const marcadoLibrosOferta = libros
+const marcadoLibrosOferta = librosOferta
   .map(({ id, titulo, autor, imagen, alt, precio, descripcion, paginas }) => {
     return `
       <li class="swiper-slide">
