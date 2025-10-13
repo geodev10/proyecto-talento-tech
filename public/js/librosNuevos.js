@@ -1,7 +1,7 @@
 const cardsNuevos = document.getElementById("libros-nuevos");
 const API_URL_NUEVOS = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech.onrender.com";
+  : "https://proyecto-talento-tech-production.up.railway.app";
 
 // 1️⃣ Traer los libros desde el servidor
 fetch(`${API_URL_NUEVOS}/api/libros-nuevos`)

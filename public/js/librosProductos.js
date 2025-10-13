@@ -11,7 +11,7 @@ const btnAgregarCarrito = document.getElementById("btnAgregarCarrito");
 // PUERTO FETCH DINAMICO
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech.onrender.com";
+  : "https://proyecto-talento-tech-production.up.railway.app";
 
 // 1️⃣ Traer los libros desde el servidor
 fetch(`${API_URL}/api/libros`)

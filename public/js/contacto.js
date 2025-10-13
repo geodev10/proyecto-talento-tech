@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech.onrender.com";
+  : "https://proyecto-talento-tech-production.up.railway.app";
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
