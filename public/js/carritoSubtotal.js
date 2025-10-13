@@ -4,9 +4,12 @@ const cartCountEl = document.getElementById("cart-count");
 const cartCountMovil = document.getElementById("cart-count-movil");
 
 // PUERTO FETCH DINAMICO
+// const API_URL = window.location.hostname.includes("localhost")
+//   ? "http://localhost:3000"
+//   : "https://proyecto-talento-tech-production.up.railway.app";
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech-production.up.railway.app";
+  : "https://proyecto-talento-tech-2eaj.onrender.com";
 
 // Función para actualizar el contador del carrito
 function actualizarContador() {
