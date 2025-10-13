@@ -82,6 +82,7 @@ app.get("/api/libros-oferta", async (req, res) => {
 // RUTA PARA EL FORMULARIO
 app.post("/contacto", async (req, res) => {
   const { nombre, email, telefono, motivo, mensaje } = req.body;
+  console.log("Enviando correo a:", process.env.EMAIL_PERSONAL);
 
   // Configuración del transporter de NodeMailer
   const transporter = nodemailer.createTransport({
@@ -90,6 +91,8 @@ app.post("/contacto", async (req, res) => {
       user: process.env.GMAIL_USER,
       pass: process.env.GMAIL_PASS,
     },
+    tls: { rejectUnauthorized: false },
+    connectionTimeout: 10000, // 10s
   });
 
   const mailOptions = {
