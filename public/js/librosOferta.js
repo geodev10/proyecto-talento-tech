@@ -9,9 +9,8 @@ fetch(`${API_URL}/api/libros-oferta`)
   .then((librosOferta) => {
     // 2️⃣ Crear las tarjetas
     const marcadoLibrosOferta = librosOferta
-      .map(
-        ({ id, titulo, autor, imagen, alt, precio, descripcion, paginas }) => {
-          return `
+      .map(({ id, titulo, autor, imagen, alt, precio, descripcion }) => {
+        return `
           <li class="swiper-slide">
             <article class="card text-center card-hover h-100">
               <img class="card-img-top" src="${imagen}" alt="${alt}" />
@@ -43,8 +42,7 @@ fetch(`${API_URL}/api/libros-oferta`)
             </article>
           </li>
         `;
-        }
-      )
+      })
       .join("");
 
     // 3️⃣ Insertar en el HTML
@@ -76,7 +74,17 @@ fetch(`${API_URL}/api/libros-oferta`)
       });
     });
 
-    // 5️⃣ Activar los botones de añadir al carrito
+    // 5️⃣ Función para actualizar el contador del carrito
+    const actualizarContadorCarrito = () => {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const cartCountEl = document.getElementById("cart-count");
+      const cartCountMovil = document.getElementById("cart-count-movil");
+
+      if (cartCountEl) cartCountEl.textContent = carrito.length;
+      if (cartCountMovil) cartCountMovil.textContent = carrito.length;
+    };
+
+    // 6️⃣ Activar los botones de añadir al carrito
     document.querySelectorAll(".btn-añadir").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const id = e.currentTarget.dataset.id;
@@ -95,28 +103,14 @@ fetch(`${API_URL}/api/libros-oferta`)
             position: "top-end",
             showConfirmButton: false,
           });
+
+          // ✅ Actualiza el contador justo después de añadir
+          actualizarContadorCarrito();
         }
       });
     });
 
-    // 6️⃣ Actualizar contador del carrito (versión corregida)
-    const actualizarContador = () => {
-      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-      const cartCountEl = document.getElementById("cart-count");
-      const cartCountMovil = document.getElementById("cart-count-movil");
-
-      if (cartCountEl) cartCountEl.textContent = carrito.length;
-      if (cartCountMovil) cartCountMovil.textContent = carrito.length;
-    };
-
-    // Llama al actualizar cuando se añade un producto
-    document.addEventListener("click", (e) => {
-      if (e.target.closest(".btn-añadir")) {
-        setTimeout(actualizarContador, 100);
-      }
-    });
-
-    // Llama una vez al cargar la página
-    actualizarContador();
+    // ✅ Llama una vez al cargar la sección
+    actualizarContadorCarrito();
   })
   .catch((err) => console.error("Error al cargar libros:", err));

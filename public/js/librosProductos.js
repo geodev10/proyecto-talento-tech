@@ -86,6 +86,9 @@ fetch(`${API_URL}/api/libros`)
           carrito.push(id);
           localStorage.setItem("carrito", JSON.stringify(carrito));
 
+          // 🚀 Disparar evento personalizado para actualizar el contador
+          document.dispatchEvent(new Event("carritoActualizado"));
+
           Swal.fire({
             title: "¡Producto añadido!",
             text: "Agregado al carrito",
@@ -99,7 +102,7 @@ fetch(`${API_URL}/api/libros`)
       });
     });
 
-    // 6️⃣ Actualizar contador del carrito
+    // 6️⃣ Función de actualización del contador
     const actualizarContador = () => {
       const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       const cartCountEl = document.getElementById("cart-count");
@@ -109,14 +112,10 @@ fetch(`${API_URL}/api/libros`)
       if (cartCountMovil) cartCountMovil.textContent = carrito.length;
     };
 
-    // Llama al actualizar cuando se añade un producto
-    document.addEventListener("click", (e) => {
-      if (e.target.closest(".btn-añadir")) {
-        setTimeout(actualizarContador, 100);
-      }
-    });
+    // 📡 Escuchar el evento personalizado
+    document.addEventListener("carritoActualizado", actualizarContador);
 
-    // Llama una vez al cargar la página
+    // 🔄 Llamar una vez al cargar la página
     actualizarContador();
   })
   .catch((err) => console.error("Error al cargar libros:", err));
