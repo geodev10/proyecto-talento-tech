@@ -7,10 +7,9 @@ function actualizarContadorCarrito() {
   if (cartCountMovil) cartCountMovil.textContent = carrito.length;
 }
 
-// Ejecutar al cargar la página
 actualizarContadorCarrito();
 
-// Opcional: si quieres que se actualice cuando se añadan productos en la misma página
+// Actualizar cuando añada libros en misma pagina
 document.addEventListener("click", (e) => {
   if (e.target.closest(".btn-añadir")) {
     actualizarContadorCarrito();

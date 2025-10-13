@@ -99,17 +99,25 @@ fetch(`${API_URL_NUEVOS}/api/libros-nuevos`)
       });
     });
 
-    // 6️⃣ Actualizar contador del carrito
-    let cartCount = 0;
-    const cartCountEl = document.getElementById("cart-count");
-    const cartCountMovil = document.getElementById("cart-count-movil");
+    // 6️⃣ Actualizar contador del carrito (versión corregida)
+    const actualizarContador = () => {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const cartCountEl = document.getElementById("cart-count");
+      const cartCountMovil = document.getElementById("cart-count-movil");
 
+      if (cartCountEl) cartCountEl.textContent = carrito.length;
+      if (cartCountMovil) cartCountMovil.textContent = carrito.length;
+    };
+
+    // Llama al actualizar cuando se añade un producto
     document.addEventListener("click", (e) => {
       if (e.target.closest(".btn-añadir")) {
-        cartCount++;
-        cartCountEl.textContent = cartCount;
-        cartCountMovil.textContent = cartCount;
+        // Esperar a que actualice el contador primero
+        setTimeout(actualizarContador, 100);
       }
     });
+
+    // Llama una vez al cargar la página
+    actualizarContador();
   })
   .catch((err) => console.error("Error al cargar libros:", err));
