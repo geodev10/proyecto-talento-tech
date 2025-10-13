@@ -1,4 +1,4 @@
-import express from "express";
+/*import express from "express";
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import path from "path";
@@ -115,6 +115,139 @@ Mensaje: ${mensaje || "No proporcionado"}
 <p><strong>Motivo:</strong> ${motivo || "No proporcionado"}</p>
 <p><strong>Mensaje:</strong> ${mensaje || "No proporcionado"}</p>
   `,
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: "Correo enviado correctamente" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ success: false, message: "Error al enviar correo" });
+  }
+});
+
+// Iniciar servidor
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
+*/
+
+import express from "express";
+import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+import cors from "cors";
+import nodemailer from "nodemailer";
+import mg from "nodemailer-mailgun-transport";
+import bodyParser from "body-parser";
+
+dotenv.config();
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Configurar ruta absoluta
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Permitir CORS
+app.use(cors());
+
+// Servir archivos estáticos
+app.use(express.static(path.join(__dirname, "public")));
+
+// Middleware para recibir datos de formularios
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Conectar con MongoDB
+const client = new MongoClient(process.env.MONGO_URI);
+let db;
+
+async function conectarDB() {
+  try {
+    await client.connect();
+    db = client.db("libreria");
+    console.log("Conectado a MongoDB");
+  } catch (err) {
+    console.error("Error al conectar a MongoDB:", err);
+  }
+}
+conectarDB();
+
+// Ruta index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Ruta Whatsapp
+app.get("/whatsapp", (req, res) => {
+  res.json({ numero: process.env.WHATSAPP_NUMBER });
+});
+
+// Rutas para obtener los libros
+app.get("/api/libros", async (req, res) => {
+  try {
+    const libros = await db.collection("libros").find().toArray();
+    res.json(libros);
+  } catch (err) {
+    res.status(500).json({ error: "Error al obtener libros" });
+  }
+});
+
+app.get("/api/libros-nuevos", async (req, res) => {
+  try {
+    const librosNuevos = await db.collection("librosNuevos").find().toArray();
+    res.json(librosNuevos);
+  } catch (err) {
+    res.status(500).json({ error: "Error al obtener libros nuevos" });
+  }
+});
+
+app.get("/api/libros-oferta", async (req, res) => {
+  try {
+    const librosOferta = await db.collection("librosOferta").find().toArray();
+    res.json(librosOferta);
+  } catch (err) {
+    res.status(500).json({ error: "Error al obtener libros en oferta" });
+  }
+});
+
+// Configuración de Mailgun
+const mailgunAuth = {
+  auth: {
+    api_key: process.env.MAILGUN_API_KEY,
+    domain: process.env.MAILGUN_DOMAIN,
+  },
+};
+
+const transporter = nodemailer.createTransport(mg(mailgunAuth));
+
+// RUTA PARA EL FORMULARIO
+app.post("/contacto", async (req, res) => {
+  const { nombre, email, telefono, motivo, mensaje } = req.body;
+
+  const mailOptions = {
+    from: `"Rincón Encantao" <postmaster@${process.env.MAILGUN_DOMAIN}>`,
+    to: process.env.EMAIL_PERSONAL,
+    subject: `Nuevo mensaje de ${nombre || "Sin nombre"} - ${
+      motivo || "Sin motivo"
+    }`,
+    text: `
+Nombre: ${nombre || "No proporcionado"}
+Correo: ${email || "No proporcionado"}
+Teléfono: ${telefono || "No proporcionado"}
+Motivo: ${motivo || "No proporcionado"}
+Mensaje: ${mensaje || "No proporcionado"}
+    `,
+    html: `
+<h3>Nuevo mensaje de ${nombre || "No proporcionado"}</h3>
+<p><strong>Correo:</strong> ${email || "No proporcionado"}</p>
+<p><strong>Teléfono:</strong> ${telefono || "No proporcionado"}</p>
+<p><strong>Motivo:</strong> ${motivo || "No proporcionado"}</p>
+<p><strong>Mensaje:</strong> ${mensaje || "No proporcionado"}</p>
+    `,
   };
 
   try {
