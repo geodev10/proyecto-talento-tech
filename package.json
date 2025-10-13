@@ -1,0 +1,20 @@
+{
+  "name": "proyecto-talento-tech",
+  "version": "1.0.0",
+  "description": "Proyecto Final para TalentoTech Valle,  Página Web",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Jorge Lizcano",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "nodemailer": "^7.0.9"
+  }
+}
