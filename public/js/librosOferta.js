@@ -1,7 +1,7 @@
 const cardsOferta = document.getElementById("libros-oferta");
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://tu-servicio.onrender.com";
+  : "https://proyecto-talento-tech.onrender.com";
 
 // 1️⃣ Traer los libros desde el servidor
 fetch(`${API_URL}/api/libros-oferta`)

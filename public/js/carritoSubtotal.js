@@ -6,7 +6,7 @@ const cartCountMovil = document.getElementById("cart-count-movil");
 // PUERTO FETCH DINAMICO
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://tu-servicio.onrender.com";
+  : "https://proyecto-talento-tech.onrender.com";
 
 // Función para actualizar el contador del carrito
 function actualizarContador() {
