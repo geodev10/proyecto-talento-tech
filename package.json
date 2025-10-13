@@ -16,6 +16,6 @@
     "express": "^5.1.0",
     "mongodb": "^6.20.0",
     "nodemailer": "^7.0.9",
-    "nodemailer-mailgun-transport": "^2.1.5"
+    "resend": "^6.1.2"
   }
 }
