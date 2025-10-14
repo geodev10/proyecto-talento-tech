@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="El Rincón Encantao es una librería en Cali especializada en literatura de misterio, suspenso y terror. Descubre libros, productos temáticos y artículos especiales de temporada como Halloween."
+    />
+    <meta
+      name="keywords"
+      content="librería, misterio, terror, suspenso, libros de misterio, Halloween, literatura oscura, tienda de libros Cali, El Rincón Encantao"
+    />
+
+    <meta name="author" content="Jorge Lizcano" />
+
+    <link
+      rel="shortcut icon"
+      href="./assets/img/logo_rincon_encantao2.ico"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+    />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- SweetAlert2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>El Rincón Encantao | Librería de misterio y terror</title>
+  </head>
+  <body>
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark fs-5 p-0">
+        <div
+          class="container-fluid d-flex justify-content-between align-items-center"
+        >
+          <!-- Logo -->
+          <a class="navbar-brand p-0 m-0" href="./index.html">
+            <img
+              class="icono"
+              src="./assets/img/logo_rincon_encantao2.png"
+              alt="Logo del proyecto"
+            />
+          </a>
+
+          <a href="./carrito.html" class="btn carrito d-lg-none">
+            <i class="bi bi-cart-fill" aria-hidden="true"></i>
+            <span
+              id="cart-count-movil"
+              class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-warning"
+            >
+              0
+            </span>
+          </a>
+
+          <!-- Menu hamburguesa -->
+          <button
+            class="navbar-toggler order-lg-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="collapse navbar-collapse justify-content-center order-lg-1"
+            id="navbarTogglerDemo03"
+          >
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item">
+                <a class="nav-link p-4" aria-current="page" href="./index.html"
+                  >Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-4" href="./nosotros.html">Nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-4" href="./productos.html">Productos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link p-4" href="./contacto.html">Contacto</a>
+              </li>
+
+              <!-- Carrito solo visible en desktop -->
+              <!-- <li class="nav-item d-none d-lg-block">
+                <a class="nav-link p-4" href="./carrito.html">
+                  <i class="bi bi-cart-fill" aria-hidden="true"></i> Carrito
+                </a>
+              </li> -->
+
+              <li class="nav-item d-none d-lg-block">
+                <a class="nav-link p-4 position-relative" href="./carrito.html">
+                  <i class="bi bi-cart-fill" aria-hidden="true"></i> Carrito
+                  <span
+                    id="cart-count"
+                    class="position-absolute top-10 start-20 translate-middle badge rounded-pill bg-warning"
+                  >
+                    0
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <!-- Por si se va a agregar buscador -->
+            <!-- <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="politicas" class="politicas container py-5">
+      <!-- Encabezado -->
+      <section class="text-center mb-5" data-aos="fade-up">
+        <h1 class="display-5 fw-bold">Políticas del Rincón Encantao</h1>
+        <p class="lead text-light">
+          Porque hasta la magia necesita reglas... ✨
+        </p>
+      </section>
+
+      <!-- Bloques de política -->
+      <section class="row g-4">
+        <!-- Privacidad -->
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="card bg-dark text-light borde shadow p-4 h-100 rounded-3">
+            <div class="card-body">
+              <h2 class="h4 text-warning mb-3">
+                <i class="bi bi-shield-lock-fill"></i> Privacidad y datos
+                personales
+              </h2>
+              <p>
+                Tus datos son tratados con el mismo cuidado con el que cuidamos
+                nuestros libros antiguos. Solo usamos la información que nos
+                proporcionas para gestionar tus pedidos o enviarte información
+                relevante. Nunca compartimos tus datos con terceros sin tu
+                autorización.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Envíos -->
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="card bg-dark text-light shadow borde p-4 h-100 rounded-3">
+            <div class="card-body">
+              <h2 class="h4 text-warning mb-3">
+                <i class="bi bi-truck"></i> Tarifas y Envíos
+              </h2>
+              <p>
+                Trabajamos con aliados como Servientrega, Coordinadora y Envia
+                para garantizar que tus libros lleguen sanos y salvos. Los
+                tiempos de entrega suelen ser de 2 a 5 días hábiles según el
+                destino. Las tarifas se calculan al finalizar tu compra.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cambios y devoluciones -->
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="card bg-dark text-light shadow p-4 h-100 borde rounded-3">
+            <div class="card-body">
+              <h2 class="h4 text-warning mb-3">
+                <i class="bi bi-arrow-repeat"></i> Cambios y devoluciones
+              </h2>
+              <p>
+                Si un libro no era lo que esperabas, puedes solicitar cambio o
+                devolución dentro de los 5 días hábiles posteriores a la
+                entrega. El producto debe estar en perfecto estado y sin señales
+                de uso. Si el error fue nuestro, ¡nos hacemos cargo del envío de
+                retorno!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cookies -->
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="card bg-dark text-light shadow p-4 h-100 borde rounded-3">
+            <div class="card-body">
+              <h2 class="h4 text-warning mb-3">
+                <i class="bi bi-cookie"></i> Uso de cookies
+              </h2>
+              <p>
+                Usamos cookies mágicas (no peligrosas) para mejorar tu
+                experiencia, analizar el tráfico y recordar tus preferencias.
+                Puedes desactivarlas desde tu navegador si lo deseas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seguridad -->
+        <div class="col-md-6" data-aos="fade-right">
+          <div class="card bg-dark text-light shadow p-4 h-100 borde rounded-3">
+            <div class="card-body">
+              <h2 class="h4 text-warning mb-3">
+                <i class="bi bi-shield-check"></i> Seguridad
+              </h2>
+              <p>
+                Nuestro sitio cuenta con conexión segura (SSL) y prácticas de
+                protección digital. Aunque ningún sistema es infalible, hacemos
+                todo lo posible para mantener tu información a salvo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contacto -->
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="card bg-dark text-light shadow p-4 h-100 borde rounded-3">
+            <div class="card-body">
+              <h2 class="h4 text-warning mb-3">
+                <i class="bi bi-envelope-paper-heart"></i> Contacto
+              </h2>
+              <p>
+                Si tienes dudas, sugerencias o deseas ejercer tus derechos sobre
+                tus datos, escríbenos:
+              </p>
+              <ul class="list-unstyled">
+                <li>
+                  📧
+                  <a href="mailto:rinconencantao@gmail.com" class="text-warning"
+                    >rinconencantao@gmail.com</a
+                  >
+                </li>
+                <li>
+                  📞
+                  <a href="tel:+573164548708" class="text-warning"
+                    >3164548708</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center mt-5 fst-italic">
+        <small>Última actualización: Octubre 2025</small>
+      </div>
+    </main>
+
+    <footer class="pt-5 pb-3">
+      <div class="container">
+        <div class="row">
+          <!-- Politicas -->
+          <div class="footer-section politicas col-12 col-md-6 col-lg-4 mb-4">
+            <h2>Políticas</h2>
+            <ul>
+              <li class="mb-2">
+                <a href="./politicas.html#politicas"
+                  >Privacidad y manejo de datos</a
+                >
+              </li>
+              <li class="mb-2">
+                <a href="./politicas.html#politicas">Cambios y devoluciones</a>
+              </li>
+              <li class="mb-2">
+                <a href="./politicas.html#politicas"
+                  >Tarifas y tiempos de envío</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Metodos de pago -->
+          <div class="footer-section col-12 col-md-6 col-lg-4 mb-4">
+            <h2>Métodos de pago</h2>
+            <ul class="d-flex flex-wrap gap-1 footer-pagos mb-4">
+              <li>
+                <img
+                  src="./assets/img/imgPagos/mercadoPago.png"
+                  alt="imagen pagos"
+                />
+              </li>
+              <li>
+                <img src="./assets/img/imgPagos/nequi.png" alt="imagen pagos" />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/daviplata.png"
+                  alt="imagen pagos"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/mastercard.png"
+                  alt="imagen pagos"
+                />
+              </li>
+              <li>
+                <img src="./assets/img/imgPagos/visa.png" alt="imagen pagos" />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/baloto.png"
+                  alt="imagen pagos"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/efecty.png"
+                  alt="imagen pagos"
+                />
+              </li>
+              <li>
+                <img src="./assets/img/imgPagos/pse.png" alt="imagen pagos" />
+              </li>
+            </ul>
+            <h2>Métodos de envio</h2>
+            <ul class="d-flex flex-wrap gap-1 footer-pagos">
+              <li>
+                <img
+                  src="./assets/img/imgPagos/servientrega.png"
+                  alt="imagen envios"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/coordinadora.png"
+                  alt="imagen envios"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/envia.png"
+                  alt="imagen envios"
+                />
+              </li>
+              <li>
+                <img
+                  src="./assets/img/imgPagos/interrapidisimo.png"
+                  alt="imagen envios"
+                />
+              </li>
+            </ul>
+          </div>
+          <!-- Contacto footer -->
+          <div class="footer-section col-12 col-md-6 col-lg-4 mb-4">
+            <h2>Contacto</h2>
+            <ul>
+              <li class="mb-2">
+                <a href="tel:+573164548708">
+                  <i class="bi bi-phone"></i>
+                  3164548708
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="mailto:rinconencantao@gmail.com">
+                  <i class="bi bi-envelope"></i>
+                  rinconencantao@gmail.com
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="https://www.google.com/maps/place/Corporaci%C3%B3n+Universitaria+Centro+Superior+Unicuces/@3.4583611,-76.5370293,17z/data=!3m1!4b1!4m6!3m5!1s0x8e30a66e80345051:0x5a678adf93cf7132!8m2!3d3.4583611!4d-76.5344544!16s%2Fg%2F1tcyygnr?entry=ttu&g_ep=EgoyMDI1MDkxNC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                >
+                  <i class="bi bi-geo-alt"></i>
+                  Cl. 14 Nte. #8N-35, Cali, Valle del Cauca
+                </a>
+              </li>
+              <li class="mb-2">
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="bi bi-instagram"></i>
+                  @rinconencantao.oficial
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="https://www.facebook.com/?locale=es_LA"
+                  target="_blank"
+                >
+                  <i class="bi bi-facebook"></i>
+                  @rinconencantao.oficial
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="text-center p-0">
+          &copy; 2025 Jorge Lizcano. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Whatsapp -->
+    <a
+      class="whatsapp d-flex justify-content-center align-items-center"
+      href="https://web.whatsapp.com/send?phone=573175001765&text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-whatsapp w-50 h-50"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"
+        />
+      </svg>
+    </a>
+
+    <script src="./bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Insercion de libros -->
+    <script src="./js/librosOferta.js"></script>
+    <script src="./js/librosNuevos.js"></script>
+    <script src="./js/carritoContador.js"></script>
+
+    <!-- scripts swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="./js/swiper-script.js"></script>
+    <!-- Scripts AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/aos.js"></script>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
