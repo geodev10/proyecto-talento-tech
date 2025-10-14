@@ -8,9 +8,10 @@ const API_URL_NUEVOS = window.location.hostname.includes("localhost")
   : "https://proyecto-talento-tech-2eaj.onrender.com";
 
 // 1️⃣ Traer los libros desde el servidor
-fetch(`${API_URL_NUEVOS}/api/libros-nuevos`)
+fetch(`${API_URL_NUEVOS}/api/libros`)
   .then((res) => res.json())
-  .then((librosNuevos) => {
+  .then((libros) => {
+    const librosNuevos = libros.filter((libro) => libro.nuevo);
     // 2️⃣ Crear las tarjetas
     const marcadoLibrosNuevos = librosNuevos
       .map(({ id, titulo, autor, imagen, alt, precio, descripcion }) => {
@@ -64,7 +65,7 @@ fetch(`${API_URL_NUEVOS}/api/libros-nuevos`)
     botonesVer.forEach((boton) => {
       boton.addEventListener("click", () => {
         const id = parseInt(boton.dataset.id);
-        const libro = librosNuevos.find((l) => l.id === id);
+        const libro = librosNuevos.find((libro) => libro.id === id);
 
         if (!libro) return;
 

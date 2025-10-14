@@ -56,24 +56,6 @@ app.get("/api/libros", async (req, res) => {
   }
 });
 
-app.get("/api/libros-nuevos", async (req, res) => {
-  try {
-    const librosNuevos = await db.collection("librosNuevos").find().toArray();
-    res.json(librosNuevos);
-  } catch {
-    res.status(500).json({ error: "Error al obtener libros nuevos" });
-  }
-});
-
-app.get("/api/libros-oferta", async (req, res) => {
-  try {
-    const librosOferta = await db.collection("librosOferta").find().toArray();
-    res.json(librosOferta);
-  } catch {
-    res.status(500).json({ error: "Error al obtener libros en oferta" });
-  }
-});
-
 // 🔹 Configuración de RESEND
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -90,7 +72,7 @@ app.post("/contacto", async (req, res) => {
       }`,
       html: `
         <div style="font-family: Arial, sans-serif; color: #333;">
-          <h2 style="color:#186a1e;">📩 Nuevo mensaje desde el formulario</h2>
+          <h2 style="color:#186a1e;">Nuevo mensaje desde el formulario</h2>
           <p><strong>Nombre:</strong> ${nombre || "No proporcionado"}</p>
           <p><strong>Correo:</strong> ${email || "No proporcionado"}</p>
           <p><strong>Teléfono:</strong> ${telefono || "No proporcionado"}</p>

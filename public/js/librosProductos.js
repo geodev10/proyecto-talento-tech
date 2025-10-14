@@ -65,7 +65,7 @@ fetch(`${API_URL}/api/libros`)
     document.querySelectorAll(".btn-ver-libro").forEach((boton) => {
       boton.addEventListener("click", () => {
         const id = boton.dataset.id;
-        const libro = libros.find((l) => l.id == id);
+        const libro = libros.find((libro) => libro.id == id);
 
         if (!libro) return;
 
