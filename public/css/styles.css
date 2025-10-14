@@ -537,6 +537,10 @@ textarea {
   object-fit: contain;
 }
 
+#politicas section .borde {
+  outline: 1.5px solid var(--gold);
+}
+
 /* FOOTER */
 footer {
   background-color: var(--violeta-ruso);
