@@ -58,7 +58,7 @@ fetch(`${API_URL}/api/libros`)
           <div class="col-md-9">
             <div class="card-body d-flex justify-content-between align-items-center">
               <div>
-                <h5 class="card-title mb-1">${libro.titulo}</h5>
+                <h3 class="card-title mb-1">${libro.titulo}</h3>
                 <p class="card-text mb-0">${libro.descripcion}</p>
               </div>
               <div class="d-flex align-items-center text-end">

@@ -9,8 +9,8 @@
   --blanco-deg: #fefefe50;
   --violeta-ruso: #1c1233;
   --violeta-ruso-deg: #1c1233e5;
-  --violeta: #2f1e58;
-  --violeta-pop: #5a28cfe0;
+  --violeta: #2c1958;
+  --violeta-pop: #4f22b9e0;
   --gris: #ffffff1c;
   --negro-grisaceo: #2c282c;
   --bunker: #11171b;
@@ -503,6 +503,14 @@ textarea {
 #carrito .card {
   border-radius: 20px;
   background-color: var(--violeta);
+}
+
+.seccion-pagar .subtotal {
+  font-size: 3rem;
+}
+
+.seccion-pagar #subtotal {
+  font-size: 3.5rem;
 }
 
 .seccion-pagar {
