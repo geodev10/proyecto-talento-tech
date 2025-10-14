@@ -345,22 +345,6 @@ footer a {
   cursor: grab;
 }
 
-/* Productos Swipper baner */
-.swiper-banner {
-  width: 100%;
-  max-width: 100%;
-  height: 500px;
-  aspect-ratio: 16 / 6;
-  overflow: hidden;
-}
-
-.swiper-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  display: block;
-}
-
 /* Seccion iconos inicio */
 .seccion-iconos {
   background-color: #5252521f;
