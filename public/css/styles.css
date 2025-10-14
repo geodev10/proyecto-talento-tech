@@ -46,8 +46,6 @@ ul {
 h1,
 h2,
 h3 {
-  /* 1font-family: "Cinzel", serif;
-  font-optical-sizing: auto; */
   font-family: "Merriweather", serif;
   font-optical-sizing: auto;
   color: var(--halloween);
@@ -496,7 +494,7 @@ textarea {
   border-radius: 25px;
 }
 
-/* Carrito de compras */
+/* CARRITO DE COMPRAS */
 
 #carrito .card {
   border-radius: 20px;
@@ -586,7 +584,7 @@ footer .footer-pagos img {
   fill: var(--blanco);
 }
 
-/* Animaciones */
+/* ANIMACIONES */
 @keyframes apareceForm {
   from {
     opacity: 0;

@@ -93,16 +93,16 @@ fetch(`${API_URL}/api/libros`)
         const btn = e.target.closest(".btn-eliminar");
         const id = btn.dataset.id;
 
-        // 1️⃣ Eliminar del carrito en localStorage
+        // Eliminar del carrito en localStorage
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         carrito = carrito.filter((itemId) => itemId != id);
         localStorage.setItem("carrito", JSON.stringify(carrito));
 
-        // 2️⃣ Eliminar del DOM
+        // Eliminar del DOM
         const li = btn.closest("li");
         if (li) li.remove();
 
-        // 3️⃣ Recalcular subtotal y actualizar contador
+        // Recalcular subtotal y actualizar contador
         calcularSubtotal();
         actualizarContador();
       }

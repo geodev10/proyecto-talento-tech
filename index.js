@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configurar rutas absolutas
+// Rutas absolutas
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// 🔹 Conexión a MongoDB
+// Conexión a MongoDB
 const client = new MongoClient(process.env.MONGO_URI);
 let db;
 
@@ -32,12 +32,12 @@ async function conectarDB() {
     db = client.db("libreria");
     console.log("✅ Conectado a MongoDB");
   } catch (err) {
-    console.error("❌ Error al conectar a MongoDB:", err);
+    console.error("Error al conectar a MongoDB:", err);
   }
 }
 conectarDB();
 
-// 🔹 Rutas principales
+// Rutas principales
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
@@ -46,7 +46,6 @@ app.get("/whatsapp", (req, res) => {
   res.json({ numero: process.env.WHATSAPP_NUMBER });
 });
 
-// 🔹 Rutas para libros
 app.get("/api/libros", async (req, res) => {
   try {
     const libros = await db.collection("libros").find().toArray();
@@ -56,17 +55,18 @@ app.get("/api/libros", async (req, res) => {
   }
 });
 
-// 🔹 Configuración de RESEND
+// Configuración de RESEND
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// 🔹 Ruta de contacto (envío de correo)
+// Ruta de contacto y envio de correo
 app.post("/contacto", async (req, res) => {
   const { nombre, email, telefono, motivo, mensaje } = req.body;
 
   try {
     await resend.emails.send({
-      from: "Rincón Encantao <onboarding@resend.dev>", // 👈 remitente recomendado para evitar bloqueos
-      to: process.env.EMAIL_PERSONAL, // destino en .env
+      // onboarding@resend.dev para evitar bloqueo
+      from: "Rincón Encantao <onboarding@resend.dev>",
+      to: process.env.EMAIL_PERSONAL,
       subject: `Nuevo mensaje de ${nombre || "Sin nombre"} - ${
         motivo || "Sin motivo"
       }`,
@@ -83,15 +83,15 @@ app.post("/contacto", async (req, res) => {
       `,
     });
 
-    console.log("📩 Correo enviado correctamente");
+    console.log("Correo enviado correctamente");
     res.json({ success: true, message: "Correo enviado correctamente" });
   } catch (err) {
-    console.error("❌ Error al enviar correo:", err);
+    console.error("Error al enviar correo:", err);
     res.status(500).json({ success: false, message: "Error al enviar correo" });
   }
 });
 
 // 🔹 Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

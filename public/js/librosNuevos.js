@@ -7,12 +7,12 @@ const API_URL_NUEVOS = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
   : "https://proyecto-talento-tech-2eaj.onrender.com";
 
-// 1️⃣ Traer los libros desde el servidor
+// Traer los libros desde el servidor
 fetch(`${API_URL_NUEVOS}/api/libros`)
   .then((res) => res.json())
   .then((libros) => {
     const librosNuevos = libros.filter((libro) => libro.nuevo);
-    // 2️⃣ Crear las tarjetas
+    // Crear las tarjetas
     const marcadoLibrosNuevos = librosNuevos
       .map(({ id, titulo, autor, imagen, alt, precio, descripcion }) => {
         return `
@@ -50,10 +50,10 @@ fetch(`${API_URL_NUEVOS}/api/libros`)
       })
       .join("");
 
-    // 3️⃣ Insertar en el HTML
+    // Insertar en el HTML
     cardsNuevos.insertAdjacentHTML("beforeend", marcadoLibrosNuevos);
 
-    // 4️⃣ Configurar modal
+    // Configurar modal
     const botonesVer = document.querySelectorAll(".btn-ver-libro");
     const modalImagen = document.getElementById("modalImagen");
     const modalTitulo = document.getElementById("modalTitulo");
@@ -79,7 +79,7 @@ fetch(`${API_URL_NUEVOS}/api/libros`)
       });
     });
 
-    // 5️⃣ Función para actualizar el contador del carrito
+    // Función para actualizar el contador del carrito
     const actualizarContadorCarrito = () => {
       const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       const cartCountEl = document.getElementById("cart-count");
@@ -89,7 +89,7 @@ fetch(`${API_URL_NUEVOS}/api/libros`)
       if (cartCountMovil) cartCountMovil.textContent = carrito.length;
     };
 
-    // 6️⃣ Activar los botones de añadir al carrito
+    // Activar los botones de añadir al carrito
     document.querySelectorAll(".btn-añadir").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const id = e.currentTarget.dataset.id;
@@ -109,13 +109,13 @@ fetch(`${API_URL_NUEVOS}/api/libros`)
             showConfirmButton: false,
           });
 
-          // ✅ Actualiza inmediatamente después de agregar
+          // Actualizar inmediatamente después de agregar
           actualizarContadorCarrito();
         }
       });
     });
 
-    // ✅ Llama una vez al cargar toda la sección
+    // Llamar una vez al cargar toda la sección
     actualizarContadorCarrito();
   })
   .catch((err) => console.error("Error al cargar libros:", err));

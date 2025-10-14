@@ -16,11 +16,11 @@ const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
   : "https://proyecto-talento-tech-2eaj.onrender.com";
 
-// 1️⃣ Traer los libros desde el servidor
+// Traer los libros desde el servidor
 fetch(`${API_URL}/api/libros`)
   .then((res) => res.json())
   .then((libros) => {
-    // 2️⃣ Crear las tarjetas
+    // Crear las tarjetas
     const marcadoLibros = libros
       .map(({ id, titulo, autor, imagen, alt, precio, descripcion }) => {
         return `
@@ -58,10 +58,10 @@ fetch(`${API_URL}/api/libros`)
       })
       .join("");
 
-    // 3️⃣ Insertar en el HTML
+    // Insertar en el HTML
     listaLibros.insertAdjacentHTML("beforeend", marcadoLibros);
 
-    // 4️⃣ Activar botones de "Ver" para llenar el modal
+    // Activar botones de ver para llenar el modal
     document.querySelectorAll(".btn-ver-libro").forEach((boton) => {
       boton.addEventListener("click", () => {
         const id = boton.dataset.id;
@@ -79,7 +79,7 @@ fetch(`${API_URL}/api/libros`)
       });
     });
 
-    // 5️⃣ Activar los botones de añadir al carrito
+    // Activar los botones de añadir al carrito
     document.querySelectorAll(".btn-añadir").forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const id = e.currentTarget.dataset.id;
@@ -89,7 +89,7 @@ fetch(`${API_URL}/api/libros`)
           carrito.push(id);
           localStorage.setItem("carrito", JSON.stringify(carrito));
 
-          // 🚀 Disparar evento personalizado para actualizar el contador
+          // Disparar evento personalizado para actualizar el contador
           document.dispatchEvent(new Event("carritoActualizado"));
 
           Swal.fire({
@@ -105,7 +105,7 @@ fetch(`${API_URL}/api/libros`)
       });
     });
 
-    // 6️⃣ Función de actualización del contador
+    // Función de actualización del contador
     const actualizarContador = () => {
       const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       const cartCountEl = document.getElementById("cart-count");
@@ -115,10 +115,10 @@ fetch(`${API_URL}/api/libros`)
       if (cartCountMovil) cartCountMovil.textContent = carrito.length;
     };
 
-    // 📡 Escuchar el evento personalizado
+    // Escuchar el evento personalizado
     document.addEventListener("carritoActualizado", actualizarContador);
 
-    // 🔄 Llamar una vez al cargar la página
+    // Llamar una vez al cargar la página
     actualizarContador();
   })
   .catch((err) => console.error("Error al cargar libros:", err));
