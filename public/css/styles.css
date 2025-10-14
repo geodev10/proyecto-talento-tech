@@ -54,7 +54,7 @@ h3 {
   font-variation-settings: "wdth" 100;
   color: var(--halloween);
   text-shadow: 0 0 1px var(--halloween), 0 0 1px var(--halloween),
-    0 0 2px var(--halloween), 0 0 4px var(--halloween);
+    0 0 2px var(--halloween), 0 0 2px var(--violeta-ruso);
 }
 
 h3 {
