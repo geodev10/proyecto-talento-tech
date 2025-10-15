@@ -265,7 +265,8 @@ footer a {
 .card-footer .btn,
 .caja-btn .btn,
 .modal-footer .btn,
-.columna-formulario .btn {
+.columna-formulario .btn,
+.filtros .btn {
   background-color: var(--verde-acento);
   color: var(--bunker);
   border: none;
@@ -281,7 +282,8 @@ footer a {
 .modal-footer .btn:hover,
 .modal-footer .btn:focus,
 .columna-formulario .btn:hover,
-.columna-formulario .btn:focus {
+.columna-formulario .btn:focus,
+.filtros .btn:hover {
   background-color: var(--verde-acento);
   color: var(--blanco);
   box-shadow: 0 0 3px rgba(71, 198, 93, 0.6), 0 0 6px rgba(71, 198, 93, 0.4),
@@ -383,7 +385,8 @@ footer a {
 }
 
 /* PAGINA CONTACTO */
-.contacto .card {
+.contacto .card,
+aside .card {
   background-color: var(--bunker);
   animation: apareceForm 1000ms ease-in forwards;
 }
@@ -406,7 +409,9 @@ footer a {
 }
 
 .columna-formulario input:not([type="checkbox"]),
+aside input:not([type="checkbox"]),
 .columna-formulario select,
+.form-select,
 .columna-formulario textarea {
   background-color: var(--bunker);
   color: var(--blanco);
@@ -415,12 +420,14 @@ footer a {
 
 .columna-formulario input:not([type="checkbox"]):focus,
 .columna-formulario select:focus,
+aside input:not([type="checkbox"]):focus,
 .columna-formulario textarea:focus {
   background-color: var(--bunker);
   color: var(--blanco);
 }
 
-.columna-formulario label {
+.columna-formulario label,
+aside label {
   color: var(--blanco);
 }
 

@@ -139,58 +139,239 @@
         </div>
       </nav>
     </header>
-    <main>
-      <section class="banner">
-        <div class="swiper swiper-banner">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide">
-              <img
-                src="./assets/img/banners/banner-step-king.png"
-                alt=""
-                class="w-100 object-fit-cover"
-              />
-            </li>
 
-            <li class="swiper-slide">
-              <img
-                src="./assets/img/banners/banner-horror-novels.webp"
-                alt=""
-                class="w-100 object-fit-cover"
-              />
-            </li>
+    <main class="pt-5 pb-5">
+      <div class="container">
+        <div class="row filtros">
+          <!-- Botón de filtros para móvil -->
+          <div class="col-12 d-md-none mb-5">
+            <button
+              class="btn w-100"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#filtrosCollapse"
+              aria-expanded="false"
+              aria-controls="filtrosCollapse"
+            >
+              Mostrar filtros
+            </button>
+          </div>
 
-            <li class="swiper-slide">
-              <img
-                src="./assets/img/banners/lovecraftian-days.webp"
-                alt=""
-                class="w-100 object-fit-cover"
-              />
-            </li>
+          <!-- Sidebar filtros -->
+          <aside
+            class="col-md-2 col-lg-2 mb-4 collapse d-md-block"
+            id="filtrosCollapse"
+          >
+            <div class="card p-2">
+              <h3 class="mb-2 fw-bold fs-4">Filtros</h3>
+              <!-- Aquí va TODO tu HTML de filtros EXACTAMENTE como lo tienes -->
+              <!-- Categoría -->
+              <div class="mb-2">
+                <h5 class="fs-6">Categoría</h5>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-categoria"
+                    type="checkbox"
+                    value="Terror"
+                    id="catTerror"
+                  />
+                  <label class="form-check-label fs-6" for="catTerror"
+                    >Terror</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-categoria"
+                    type="checkbox"
+                    value="Fantasía"
+                    id="catFantasia"
+                  />
+                  <label class="form-check-label fs-6" for="catFantasia"
+                    >Fantasía</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-categoria"
+                    type="checkbox"
+                    value="Thriller"
+                    id="catThriller"
+                  />
+                  <label class="form-check-label fs-6" for="catThriller"
+                    >Thriller</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-categoria"
+                    type="checkbox"
+                    value="Misterio"
+                    id="catMisterio"
+                  />
+                  <label class="form-check-label fs-6" for="catMisterio"
+                    >Misterio</label
+                  >
+                </div>
+              </div>
 
-            <li class="swiper-slide">
-              <img
-                src="./assets/img/banners/Historias-de-terror.webp"
-                alt=""
-                class="w-100 object-fit-cover"
-              />
-            </li>
-            <li class="swiper-slide">
-              <img
-                src="./assets/img/banners/lovecraft-descuentos.png"
-                alt=""
-                class="w-100 object-fit-cover"
-              />
-            </li>
-          </ul>
+              <!-- Autor -->
+              <div class="mb-2">
+                <h5 class="fs-6">Autor</h5>
+                <select
+                  class="form-select form-select-sm filtro-autor"
+                  id="selectAutor"
+                >
+                  <option value="">Todos</option>
+                  <!-- Se pueden generar dinámicamente desde JS -->
+                </select>
+              </div>
+
+              <!-- Precio -->
+              <div class="mb-2">
+                <h5 class="fs-6">Precio</h5>
+                <input
+                  type="number"
+                  class="form-control form-control-sm mb-1"
+                  id="precioMin"
+                  placeholder="Min"
+                  min="30000"
+                  max="100000"
+                />
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="precioMax"
+                  placeholder="Max"
+                  min="100000"
+                  max="300000"
+                />
+              </div>
+
+              <!-- Año de publicación -->
+              <div class="mb-2">
+                <h5 class="fs-6">Año de publicación</h5>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-ano"
+                    type="checkbox"
+                    value="<1950"
+                    id="ano1"
+                  />
+                  <label class="form-check-label fs-6" for="ano1"
+                    >Antes de 1950</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-ano"
+                    type="checkbox"
+                    value="1950-2000"
+                    id="ano2"
+                  />
+                  <label class="form-check-label fs-6" for="ano2"
+                    >1950-2000</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-ano"
+                    type="checkbox"
+                    value=">2000"
+                    id="ano3"
+                  />
+                  <label class="form-check-label fs-6" for="ano3"
+                    >Después de 2000</label
+                  >
+                </div>
+              </div>
+
+              <!-- Editorial -->
+              <div class="mb-2">
+                <h5 class="fs-6">Editorial</h5>
+                <select
+                  class="form-select form-select-sm filtro-editorial"
+                  id="selectEditorial"
+                >
+                  <option value="">Todas</option>
+                  <!-- Se llena dinamicamente desde JS -->
+                </select>
+              </div>
+
+              <!-- Idioma -->
+              <div class="mb-2">
+                <h5 class="fs-6">Idioma</h5>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-idioma"
+                    type="checkbox"
+                    value="Español"
+                    id="idiomaEsp"
+                  />
+                  <label class="form-check-label fs-6" for="idiomaEsp"
+                    >Español</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-idioma"
+                    type="checkbox"
+                    value="Inglés"
+                    id="idiomaIng"
+                  />
+                  <label class="form-check-label fs-6" for="idiomaIng"
+                    >Inglés</label
+                  >
+                </div>
+              </div>
+
+              <!-- Stock / Disponibilidad -->
+              <div class="mb-2">
+                <div class="form-check">
+                  <input
+                    class="form-check-input filtro-stock"
+                    type="checkbox"
+                    value="disponible"
+                    id="stockDisponible"
+                  />
+                  <label class="form-check-label fs-6" for="stockDisponible"
+                    >Solo disponibles</label
+                  >
+                </div>
+              </div>
+
+              <!-- Número de páginas -->
+              <div class="mb-2">
+                <h5 class="fs-6">Número de páginas</h5>
+                <input
+                  type="number"
+                  class="form-control form-control-sm mb-1"
+                  id="pagMin"
+                  placeholder="Min"
+                  min="0"
+                />
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="pagMax"
+                  placeholder="Max"
+                  min="0"
+                  max="1000"
+                />
+              </div>
+
+              <button class="btn btn-sm w-100 mt-2 mb-2" id="btnAplicarFiltros">
+                Aplicar
+              </button>
+            </div>
+          </aside>
+
+          <!-- Lista de libros -->
+          <section class="col-12 col-md-10">
+            <!-- Se llenara dinamicamente -->
+            <ul id="lista-libros" class="row g-4"></ul>
+          </section>
         </div>
-      </section>
-
-      <section class="libros pt-5 pb-5">
-        <div class="container">
-          <!-- OJO FALTARIA UN SIDEBAR CON OPCIONES O FILTROS -->
-          <ul id="lista-libros" class="row"></ul>
-        </div>
-      </section>
+      </div>
     </main>
 
     <!-- modal informacion de libros -->
