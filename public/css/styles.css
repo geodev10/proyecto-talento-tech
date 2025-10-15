@@ -243,21 +243,18 @@ footer a {
   opacity: 0;
   background-color: var(--bunker);
   backdrop-filter: blur(10px);
-
-  z-index: 5;
+  /* z-index: 5; */
   text-align: center;
   padding: 1.5rem;
   border: none;
 }
 
-.card-hover:hover .card-body,
-.card-hover:focus .card-body {
+.card-hover:hover .card-body {
   transform: translateY(-100%);
   opacity: 0;
 }
 
-.card-hover:hover .card-footer,
-.card-hover:focus .card-footer {
+.card-hover:hover .card-footer {
   transform: translateY(0%);
   opacity: 1;
 }
