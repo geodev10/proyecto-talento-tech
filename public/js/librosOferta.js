@@ -1,10 +1,10 @@
 const cardsOferta = document.getElementById("libros-oferta");
-// const API_URL = window.location.hostname.includes("localhost")
-//   ? "http://localhost:3000"
-//   : "https://proyecto-talento-tech-production.up.railway.app";
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech-2eaj.onrender.com";
+  : "https://proyecto-talento-tech-production.up.railway.app";
+// const API_URL = window.location.hostname.includes("localhost")
+//   ? "http://localhost:3000"
+//   : "https://proyecto-talento-tech-2eaj.onrender.com";
 
 // Traer los libros desde el servidor
 fetch(`${API_URL}/api/libros`)

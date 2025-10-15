@@ -9,12 +9,12 @@ const modalPrecio = document.getElementById("modalPrecio");
 const btnAgregarCarrito = document.getElementById("btnAgregarCarrito");
 
 // PUERTO FETCH DINAMICO
-// const API_URL = window.location.hostname.includes("localhost")
-//   ? "http://localhost:3000"
-//   : "https://proyecto-talento-tech-production.up.railway.app";
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech-2eaj.onrender.com";
+  : "https://proyecto-talento-tech-production.up.railway.app";
+// const API_URL = window.location.hostname.includes("localhost")
+//   ? "http://localhost:3000"
+//   : "https://proyecto-talento-tech-2eaj.onrender.com";
 
 // Traer los libros desde el servidor
 fetch(`${API_URL}/api/libros`)

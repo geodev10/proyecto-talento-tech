@@ -4,12 +4,12 @@ const cartCountEl = document.getElementById("cart-count");
 const cartCountMovil = document.getElementById("cart-count-movil");
 
 // PUERTO FETCH DINAMICO
-// const API_URL = window.location.hostname.includes("localhost")
-//   ? "http://localhost:3000"
-//   : "https://proyecto-talento-tech-production.up.railway.app";
 const API_URL = window.location.hostname.includes("localhost")
   ? "http://localhost:3000"
-  : "https://proyecto-talento-tech-2eaj.onrender.com";
+  : "https://proyecto-talento-tech-production.up.railway.app";
+// const API_URL = window.location.hostname.includes("localhost")
+//   ? "http://localhost:3000"
+//   : "https://proyecto-talento-tech-2eaj.onrender.com";
 
 // Función para actualizar el contador del carrito
 function actualizarContador() {
@@ -51,9 +51,8 @@ fetch(`${API_URL}/api/libros`)
       li.innerHTML = `
         <div class="row g-0">
           <div class="col-md-3">
-            <img src="${libro.imagen}" class="img-fluid rounded-start" alt="${
-        libro.alt
-      }">
+            <img src="${libro.imagen}" class="img-fluid rounded-start" alt="${libro.alt
+        }">
           </div>
           <div class="col-md-9">
             <div class="card-body d-flex justify-content-between align-items-center">
@@ -65,14 +64,12 @@ fetch(`${API_URL}/api/libros`)
                 <input type="number" class="form-control form-control-sm me-3 cantidad"
                        style="width: 70px" value="1" min="1">
                 <div>
-                  <span class="fw-bold d-block precio" data-precio="${
-                    libro.precio
-                  }">
+                  <span class="fw-bold d-block precio" data-precio="${libro.precio
+        }">
                     $${libro.precio.toLocaleString("es-CO")}
                   </span>
-                  <button class="btn btn-sm btn-danger mt-2 btn-eliminar" data-id="${
-                    libro.id
-                  }">Eliminar</button>
+                  <button class="btn btn-sm btn-danger mt-2 btn-eliminar" data-id="${libro.id
+        }">Eliminar</button>
                 </div>
               </div>
             </div>
